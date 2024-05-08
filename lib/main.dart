@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness_app/provider/getit.dart';
+import 'package:fitness_app/routes/routes.dart';
+import 'package:fitness_app/service/navigation_service.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
