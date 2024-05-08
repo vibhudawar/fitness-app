@@ -8,8 +8,8 @@ Widget CustomBottomNavBar(HomeScreenViewModel model) {
     onTap: model.onItemTapped,
     items: <BottomNavigationBarItem>[
       BottomNavigationBarItem(
-        label: Text('Home').toString(),
-        icon: Icon(Icons.home),
+        label: const Text('Home').toString(),
+        icon: const Icon(Icons.home),
         backgroundColor: Colors.lightBlue,
       ),
       // BottomNavigationBarItem(
@@ -18,13 +18,13 @@ Widget CustomBottomNavBar(HomeScreenViewModel model) {
       //   backgroundColor: Colors.lightBlue,
       // ),
       BottomNavigationBarItem(
-        label: Text('History').toString(),
-        icon: Icon(Icons.history),
+        label: const Text('History').toString(),
+        icon: const Icon(Icons.history),
         backgroundColor: Colors.lightBlue,
       ),
       BottomNavigationBarItem(
-        label: Text('Settings').toString(),
-        icon: Icon(Icons.person_rounded),
+        label: const Text('Settings').toString(),
+        icon: const Icon(Icons.person_rounded),
         backgroundColor: Colors.lightBlue,
       ),
     ],

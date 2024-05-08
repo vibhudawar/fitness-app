@@ -6,7 +6,7 @@ import 'components/auth_form.dart';
 
 class AuthScreen extends StatelessWidget {
   static String routeName = '/auth-screen';
-  const AuthScreen({Key? key}) : super(key: key);
+  const AuthScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/provider/getit.dart';
 import 'package:fitness_app/routes/routes.dart';
 import 'package:fitness_app/service/navigation_service.dart';
+import 'package:fitness_app/src/screens/home_screen/home_screen.dart';
+import 'package:fitness_app/src/screens/splash_screen/splash_screen.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +13,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupLocator();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -56,7 +60,7 @@ class _MyAppState extends State<MyApp> {
               themeMode: themeMode,
             );
           }
-          return SplashScreen();
+          return const SplashScreen();
         },
       ),
     );

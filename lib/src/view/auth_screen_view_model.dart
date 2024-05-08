@@ -9,7 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 class AuthScreenViewModel extends BaseModel {
   //------------------VARIABLES-------------//
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  var errormessage = 'An error occured please check your credentials!';
+  var errormessage = 'An error occurred please check your credentials!';
   String userEmail = '';
   String userName = '';
   String userPassword = '';
@@ -39,7 +39,7 @@ class AuthScreenViewModel extends BaseModel {
     if (userImgfile == null && !isLogin) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Please select an image'),
+          content: const Text('Please select an image'),
           backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );

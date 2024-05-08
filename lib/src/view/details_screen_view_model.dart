@@ -42,7 +42,8 @@ class DetailsScreenViewModel extends BaseModel {
   bool checkWeight(int value) {
     if (value < 74) {
       return true;
-    } else
+    } else {
       return false;
+    }
   }
 }
