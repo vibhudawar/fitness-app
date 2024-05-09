@@ -56,6 +56,58 @@ class _LineChartSample2State extends State<LineChartSample2> {
     );
   }
 
+  Widget leftTitleWidgets(double value, TitleMeta meta) {
+    const style = TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 15,
+      color: Colors.white,
+    );
+    String text;
+    switch (value.toInt()) {
+      case 1:
+        text = '78';
+        break;
+      case 3:
+        text = '74';
+        break;
+      case 5:
+        text = '65';
+        break;
+      default:
+        return Container();
+    }
+
+    return Text(text, style: style, textAlign: TextAlign.left);
+  }
+
+  Widget bottomTitleWidgets(double value, TitleMeta meta) {
+    const style = TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 15,
+      color: Colors.white,
+    );
+    Widget text;
+    switch (value.toInt()) {
+      case 2:
+        text = const Text('MAR', style: style);
+        break;
+      case 5:
+        text = const Text('JUN', style: style);
+        break;
+      case 8:
+        text = const Text('SEP', style: style);
+        break;
+      default:
+        text = const Text('', style: style);
+        break;
+    }
+
+    return SideTitleWidget(
+      axisSide: meta.axisSide,
+      child: text,
+    );
+  }
+
   LineChartData mainData() {
     return LineChartData(
       gridData: FlGridData(
@@ -76,48 +128,30 @@ class _LineChartSample2State extends State<LineChartSample2> {
       ),
       titlesData: FlTitlesData(
         show: true,
-        rightTitles: SideTitles(showTitles: false),
-        topTitles: SideTitles(showTitles: false),
-        bottomTitles: SideTitles(
-          showTitles: true,
-          reservedSize: 22,
-          interval: 1,
-          getTextStyles: (context, value) => const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-          getTitles: (value) {
-            switch (value.toInt()) {
-              case 2:
-                return 'MAR';
-              case 5:
-                return 'JUN';
-              case 8:
-                return 'SEP';
-            }
-            return '';
-          },
-          margin: 8,
+        rightTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
         ),
-        leftTitles: SideTitles(
-          showTitles: true,
-          interval: 1,
-          getTextStyles: (context, value) => const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
+        topTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        bottomTitles: AxisTitles(
+          sideTitles: SideTitles(
+            showTitles: true,
+            reservedSize: 22,
+            interval: 1,
+            getTitlesWidget: bottomTitleWidgets,
+
+            // margin: 8,
           ),
-          getTitles: (value) {
-            switch (value.toInt()) {
-              case 1:
-                return '78';
-              case 3:
-                return '74';
-              case 5:
-                return '65';
-            }
-            return '';
-          },
-          reservedSize: 32,
-          margin: 12,
+        ),
+        leftTitles: AxisTitles(
+          sideTitles: SideTitles(
+            showTitles: true,
+            interval: 1,
+            reservedSize: 32,
+            getTitlesWidget: leftTitleWidgets,
+            // margin: 12,
+          ),
         ),
       ),
       borderData: FlBorderData(
@@ -142,7 +176,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
             FlSpot(11, 4),
           ],
           isCurved: true,
-          colors: gradientColors,
+          gradient: LinearGradient(colors: gradientColors),
           barWidth: 5,
           isStrokeCapRound: true,
           dotData: const FlDotData(
@@ -150,8 +184,11 @@ class _LineChartSample2State extends State<LineChartSample2> {
           ),
           belowBarData: BarAreaData(
             show: true,
-            colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+            gradient: LinearGradient(
+              colors: gradientColors
+                  .map((color) => color.withOpacity(0.3))
+                  .toList(),
+            ),
           ),
         ),
       ],
