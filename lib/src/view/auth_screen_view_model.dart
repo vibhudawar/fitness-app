@@ -9,7 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 class AuthScreenViewModel extends BaseModel {
   //------------------VARIABLES-------------//
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  var errormessage = 'An error occurred please check your credentials!';
+  var errorMessage = 'An error occurred please check your credentials!';
   String userEmail = '';
   String userName = '';
   String userPassword = '';
@@ -102,10 +102,10 @@ class AuthScreenViewModel extends BaseModel {
         return true;
       }
     } catch (err) {
-      errormessage = err.toString();
+      errorMessage = err.toString();
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
-          content: Text(errormessage),
+          content: Text(errorMessage),
           action: SnackBarAction(
             onPressed: () {},
             label: 'undo',

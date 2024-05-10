@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class LineChartSample2 extends StatefulWidget {
   static String routeName = '/details-page';
-  const LineChartSample2({super.key});
+  final String? lastWeight;
+  final int? monthNumber;
+  const LineChartSample2({super.key, this.lastWeight, this.monthNumber});
 
   @override
   _LineChartSample2State createState() => _LineChartSample2State();
@@ -15,6 +17,30 @@ class _LineChartSample2State extends State<LineChartSample2> {
     const Color(0xff02d39a),
   ];
 
+  List<FlSpot> spotsData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the spotsData list with existing data if available
+    if (widget.lastWeight != null && widget.monthNumber != null) {
+      spotsData.add(FlSpot(
+          widget.monthNumber!.toDouble(), double.parse(widget.lastWeight!)));
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant LineChartSample2 oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Update spotsData list when new data is available
+    if (widget.lastWeight != null && widget.monthNumber != null) {
+      setState(() {
+        spotsData.add(FlSpot(
+            widget.monthNumber!.toDouble(), double.parse(widget.lastWeight!)));
+      });
+    }
+  }
+
   bool showAvg = false;
 
   @override
@@ -24,11 +50,13 @@ class _LineChartSample2State extends State<LineChartSample2> {
         AspectRatio(
           aspectRatio: 1.70,
           child: Container(
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(18),
-                ),
-                color: Theme.of(context).primaryColor),
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(18),
+              ),
+              color: Colors.green,
+              // color: Theme.of(context).primaryColor,
+            ),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
@@ -44,7 +72,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
           child: TextButton(
             onPressed: () {},
             child: Text(
-              'avg',
+              'Kgs',
               style: TextStyle(
                   fontSize: 12,
                   color:
@@ -59,22 +87,15 @@ class _LineChartSample2State extends State<LineChartSample2> {
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 15,
+      fontSize: 10,
       color: Colors.white,
     );
     String text;
-    switch (value.toInt()) {
-      case 1:
-        text = '78';
-        break;
-      case 3:
-        text = '74';
-        break;
-      case 5:
-        text = '65';
-        break;
-      default:
-        return Container();
+    if (value >= 10 && value <= 100 && value % 20 == 0) {
+      // value is between 10 and 100 and is a multiple of 20
+      text = value.toString();
+    } else {
+      return Container();
     }
 
     return Text(text, style: style, textAlign: TextAlign.left);
@@ -83,19 +104,46 @@ class _LineChartSample2State extends State<LineChartSample2> {
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 15,
+      fontSize: 10,
       color: Colors.white,
     );
     Widget text;
     switch (value.toInt()) {
+      case 1:
+        text = const Text('Jan', style: style);
+        break;
       case 2:
-        text = const Text('MAR', style: style);
+        text = const Text('Feb', style: style);
+        break;
+      case 3:
+        text = const Text('Mar', style: style);
+        break;
+      case 4:
+        text = const Text('Apr', style: style);
         break;
       case 5:
-        text = const Text('JUN', style: style);
+        text = const Text('May', style: style);
+        break;
+      case 6:
+        text = const Text('Jun', style: style);
+        break;
+      case 7:
+        text = const Text('Jul', style: style);
         break;
       case 8:
-        text = const Text('SEP', style: style);
+        text = const Text('Aug', style: style);
+        break;
+      case 9:
+        text = const Text('Sep', style: style);
+        break;
+      case 10:
+        text = const Text('Oct', style: style);
+        break;
+      case 11:
+        text = const Text('Nov', style: style);
+        break;
+      case 12:
+        text = const Text('Dec', style: style);
         break;
       default:
         text = const Text('', style: style);
@@ -160,23 +208,27 @@ class _LineChartSample2State extends State<LineChartSample2> {
             color: Colors.white,
             width: 2,
           )),
-      minX: 0,
-      maxX: 11,
+      minX: 1,
+      maxX: 13,
       minY: 0,
-      maxY: 6,
+      maxY: 100,
       lineBarsData: [
         LineChartBarData(
-          spots: const [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
-            FlSpot(11, 4),
-          ],
+          spots: spotsData,
+          // const [
+          //   FlSpot(1, 70),
+          //   FlSpot(2, 80),
+          //   FlSpot(3, 60),
+          //   FlSpot(4, 44),
+          //   FlSpot(5, 90),
+          //   FlSpot(6, 70),
+          //   FlSpot(7, 45),
+          //   FlSpot(8, 60),
+          //   FlSpot(9, 50),
+          // ],
           isCurved: true,
-          gradient: LinearGradient(colors: gradientColors),
+          color: Colors.amber,
+          // gradient: LinearGradient(colors: gradientColors),
           barWidth: 5,
           isStrokeCapRound: true,
           dotData: const FlDotData(

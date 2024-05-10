@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fitness_app/provider/base_view.dart';
-import 'package:fitness_app/src/screens/about_screen/about_us_screen.dart';
 import 'package:fitness_app/src/screens/auth_screen/auth_screen.dart';
 import 'package:fitness_app/src/view/user_profile_view_model.dart';
 
@@ -34,70 +33,65 @@ class UserProfile extends StatelessWidget {
                       children: [
                         // User card
                         BigUserCard(
-                          backgroundColor: Theme.of(context).primaryColor,
+                          backgroundColor: Colors.green,
+                          // backgroundColor: Theme.of(context).primaryColor,
                           userName: model.user.name,
                           userProfilePic: NetworkImage(model.user.imageUrl),
-                          cardActionWidget: SettingsItem(
-                            icons: Icons.edit,
-                            iconStyle: IconStyle(
-                              withBackground: true,
-                              borderRadius: 50,
-                              backgroundColor: Colors.yellow[600],
-                            ),
-                            title: "Modify",
-                            subtitle: "Tap to change your data",
-                            onTap: () {
-                              Fluttertoast.showToast(msg: 'Coming soon!');
-                            },
-                          ),
+                          // cardActionWidget: SettingsItem(
+                          //   icons: Icons.edit,
+                          //   iconStyle: IconStyle(
+                          //     withBackground: true,
+                          //     borderRadius: 50,
+                          //     backgroundColor: Colors.yellow[600],
+                          //   ),
+                          //   title: "Modify",
+                          //   subtitle: "Tap to change your data",
+                          //   onTap: () {
+                          //     Fluttertoast.showToast(msg: 'Coming soon!');
+                          //   },
+                          // ),
                         ),
                         SettingsGroup(
-                          items: [
-                            SettingsItem(
-                              onTap: () {
-                                Fluttertoast.showToast(
-                                    msg: 'Coming soon! stay updated');
-                              },
-                              icons: CupertinoIcons.pencil_outline,
-                              iconStyle: IconStyle(),
-                              title: 'Appearance',
-                              subtitle: "Make Weight Tracker'App yours",
-                            ),
-                            SettingsItem(
-                              onTap: () {
-                                // if (model.isDark) {
-                                //   onThemeModeChanged!(ThemeMode.light);
-                                // } else {
-                                //   onThemeModeChanged!(ThemeMode.dark);
-                                // }
-                              },
-                              icons: Icons.dark_mode_rounded,
-                              iconStyle: IconStyle(
-                                iconsColor: Colors.white,
-                                withBackground: true,
-                                backgroundColor: Colors.red,
-                              ),
-                              title: 'Dark mode',
-                              subtitle: "Automatic",
-                              trailing: Switch.adaptive(
-                                  value: false, onChanged: (value) {}),
-                            ),
+                          items: const [
+                            // SettingsItem(
+                            //   onTap: () {
+                            //     Fluttertoast.showToast(
+                            //         msg: 'Coming soon! stay updated');
+                            //   },
+                            //   icons: CupertinoIcons.pencil_outline,
+                            //   iconStyle: IconStyle(),
+                            //   title: 'Appearance',
+                            //   subtitle: "Make Weight Tracker'App yours",
+                            // ),
+                            // SettingsItem(
+                            //   onTap: () {},
+                            //   icons: Icons.dark_mode_rounded,
+                            //   iconStyle: IconStyle(
+                            //     iconsColor: Colors.white,
+                            //     withBackground: true,
+                            //     backgroundColor: Colors.red,
+                            //   ),
+                            //   title: 'Dark mode',
+                            //   subtitle: "Automatic",
+                            //   trailing: Switch.adaptive(
+                            //       value: false, onChanged: (value) {}),
+                            // ),
                           ],
                         ),
                         SettingsGroup(
-                          items: [
-                            SettingsItem(
-                              onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(AboutUs.routeName);
-                              },
-                              icons: Icons.info_rounded,
-                              iconStyle: IconStyle(
-                                backgroundColor: Colors.purple,
-                              ),
-                              title: 'About',
-                              subtitle: "Learn more about Devs",
-                            ),
+                          items: const [
+                            // SettingsItem(
+                            //   onTap: () {
+                            //     Navigator.of(context)
+                            //         .pushNamed(AboutUs.routeName);
+                            //   },
+                            //   icons: Icons.info_rounded,
+                            //   iconStyle: IconStyle(
+                            //     backgroundColor: Colors.purple,
+                            //   ),
+                            //   title: 'About',
+                            //   subtitle: "Learn more about Devs",
+                            // ),
                           ],
                         ),
                         // You can add a settings title
@@ -131,13 +125,13 @@ class UserProfile extends StatelessWidget {
                             ),
                           ],
                         ),
-                        FlexThemeModeSwitch(
-                          themeMode: themeMode as ThemeMode,
-                          onThemeModeChanged:
-                              onThemeModeChanged as void Function(ThemeMode),
-                          flexSchemeData: flexSchemeData as FlexSchemeData,
-                          buttonOrder: FlexThemeModeButtonOrder.lightSystemDark,
-                        ),
+                        // FlexThemeModeSwitch(
+                        //   themeMode: themeMode as ThemeMode,
+                        //   onThemeModeChanged:
+                        //       onThemeModeChanged as void Function(ThemeMode),
+                        //   flexSchemeData: flexSchemeData as FlexSchemeData,
+                        //   buttonOrder: FlexThemeModeButtonOrder.lightSystemDark,
+                        // ),
                       ],
                     )
                   : const Center(

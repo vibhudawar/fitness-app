@@ -30,13 +30,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     const FlexScheme usedScheme = FlexScheme.aquaBlue;
     return MaterialApp(
-      title: 'Lossy', navigatorKey: getIt<NavigationService>().navigatorKey,
+      title: 'FitUp', navigatorKey: getIt<NavigationService>().navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: FlexThemeData.light(
+        useMaterial3: false,
         scheme: usedScheme,
         // Use very subtly themed app bar elevation in light mode.
         appBarElevation: 0.5,
       ),
+
       // Same definition for the dark theme, but using FlexThemeData.dark().
       darkTheme: FlexThemeData.dark(
         scheme: usedScheme,
@@ -45,6 +47,7 @@ class _MyAppState extends State<MyApp> {
       ),
       // Use the above dark or light theme based on active themeMode.
       themeMode: themeMode,
+
       routes: routes,
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),

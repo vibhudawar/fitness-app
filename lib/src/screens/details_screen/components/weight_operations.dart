@@ -17,6 +17,9 @@ class WeightOperations {
             buttonText: 'Add',
             press1: () async {
               model.save();
+
+              // added last weight
+              model.getLastWeight();
               Navigator.of(context).pop();
               Fluttertoast.showToast(msg: "Weight added successfully");
             },
@@ -37,6 +40,9 @@ class WeightOperations {
             buttonText: 'Save',
             press1: () async {
               model.edit(docId: docId);
+
+              model.getLastWeight();
+
               Navigator.of(context).pop();
               Fluttertoast.showToast(msg: "Weight saved");
             },
@@ -56,6 +62,7 @@ class WeightOperations {
             buttonText: 'Delete',
             press1: () async {
               model.delete(docId: docId);
+              model.getLastWeight();
               Navigator.of(context).pop();
               Fluttertoast.showToast(msg: "Weight deleted");
             },

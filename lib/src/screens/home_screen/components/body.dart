@@ -6,10 +6,14 @@ import 'line_graph.dart';
 
 class Body extends StatelessWidget {
   final HomeScreenViewModel model;
-  const Body({Key? key, required this.model}) : super(key: key);
+  final String? lastWeight;
+  final int? monthNumber;
+  Body({Key? key, required this.model, this.lastWeight, this.monthNumber});
 
   @override
   Widget build(BuildContext context) {
+    // debugPrint('lastWeight: $lastWeight');
+
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: getProportionateScreenWidth(15),
@@ -18,21 +22,21 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Goal progress',
+                  'Weight Statistics',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('Edit'),
-                  style: OutlinedButton.styleFrom(
-                    shape: StadiumBorder(),
-                  ),
-                )
+                // OutlinedButton(
+                //   onPressed: () {},
+                //   child: Text('Edit'),
+                //   style: OutlinedButton.styleFrom(
+                //     shape: StadiumBorder(),
+                //   ),
+                // )
               ],
             ),
           ),
@@ -40,11 +44,11 @@ class Body extends StatelessWidget {
             height: getProportionateScreenHeight(20),
           ),
           Card(
-            elevation: 6.0,
+            elevation: 5.0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(15),
@@ -56,25 +60,25 @@ class Body extends StatelessWidget {
                     height: getProportionateScreenWidth(120),
                     //width: 2 * getProportionateScreenWidth(200),
                     child: SingleChildScrollView(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       child: CircularPercentIndicator(
                         radius: getProportionateScreenWidth(200),
                         lineWidth: 13,
                         animation: true,
                         animationDuration: 2000,
-                        arcType: ArcType.HALF,
-                        percent: 0.6,
-                        arcBackgroundColor: Colors.grey.withOpacity(0.3),
+                        // arcType: ArcType.FULL,
+                        percent: 1,
+                        // arcBackgroundColor: Colors.grey.withOpacity(0.3),
                         startAngle: 270,
                         circularStrokeCap: CircularStrokeCap.round,
-                        progressColor: Theme.of(context).primaryColor,
+                        progressColor: Colors.green[400],
                         center: Column(
                           children: [
                             SizedBox(
                               height: getProportionateScreenHeight(40),
                             ),
-                            Text(
-                              'now',
+                            const Text(
+                              'Today',
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,
@@ -82,9 +86,9 @@ class Body extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '74.5 Kg',
+                              '${lastWeight ?? "0.0"} Kg',
                               style: TextStyle(
-                                  color: ThemeData().primaryColor,
+                                  color: Colors.black87,
                                   fontWeight: FontWeight.bold,
                                   fontSize: getProportionateScreenWidth(25)),
                             ),
@@ -93,33 +97,39 @@ class Body extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      // Text(
+                      //   '78',
+                      //   style: TextStyle(
+                      //     fontSize: 20,
+                      //     color: Colors.grey,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
                       Text(
-                        '78',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Dropped ~ 4 kg',
+                        'Current Weight',
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey,
                           fontWeight: FontWeight.w600,
                         ),
+                        // 'Dropped ~ 4 kg',
+                        // style: TextStyle(
+                        //   fontSize: 15,
+                        //   color: Colors.grey,
+                        //   fontWeight: FontWeight.w600,
+                        // ),
                       ),
-                      Text(
-                        '72',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      // Text(
+                      //   '72',
+                      //   style: TextStyle(
+                      //     fontSize: 20,
+                      //     color: Colors.grey,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ],
@@ -130,32 +140,36 @@ class Body extends StatelessWidget {
             height: getProportionateScreenHeight(20),
           ),
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Statictics',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () {},
-                        icon: Icon(Icons.arrow_drop_down),
-                        label: Text('Week'),
-                        style: OutlinedButton.styleFrom(
-                          shape: StadiumBorder(),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(15),
-                  ),
-                  LineChartSample2(),
-                ],
-              )),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Statistics',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    // OutlinedButton.icon(
+                    //   onPressed: () {},
+                    //   icon: Icon(Icons.arrow_drop_down),
+                    //   label: Text('Week'),
+                    //   style: OutlinedButton.styleFrom(
+                    //     shape: StadiumBorder(),
+                    //   ),
+                    // )
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(15),
+                ),
+                LineChartSample2(
+                  lastWeight: lastWeight,
+                  monthNumber: monthNumber,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

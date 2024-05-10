@@ -85,12 +85,11 @@ class CustomDialogBox extends StatelessWidget {
                           onPressed: press2,
                           style: OutlinedButton.styleFrom(
                             shape: const StadiumBorder(),
+                            // backgroundColor: Colors.green,
                           ),
                           child: const Text(
                             'Cancel',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
+                            style: TextStyle(fontSize: 20, color: Colors.green),
                           ),
                         )
                       : const SizedBox(
@@ -98,8 +97,9 @@ class CustomDialogBox extends StatelessWidget {
                         ),
                   ElevatedButton(
                     onPressed: press1,
-                    style:
-                        ElevatedButton.styleFrom(shape: const StadiumBorder()),
+                    style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        backgroundColor: Colors.green),
                     child: Text(
                       buttonText!,
                       style: const TextStyle(

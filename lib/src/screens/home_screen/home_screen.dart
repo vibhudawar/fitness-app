@@ -15,7 +15,10 @@ class HomeScreen extends StatelessWidget {
   final ValueChanged<ThemeMode>? onThemeModeChanged;
   final FlexSchemeData? flexSchemeData;
   const HomeScreen(
-      {super.key, this.onThemeModeChanged, this.themeMode, this.flexSchemeData});
+      {super.key,
+      this.onThemeModeChanged,
+      this.themeMode,
+      this.flexSchemeData});
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +28,16 @@ class HomeScreen extends StatelessWidget {
         builder: (context, model, child) {
           return Scaffold(
             appBar: AppBar(
+              backgroundColor: Colors.green,
               automaticallyImplyLeading: false,
-              title: const Center(child: Text('Lossy')),
+              title: const Center(child: Text('FitUp')),
             ),
             body: PageView(controller: model.pageController, children: [
               SingleChildScrollView(
                 child: Body(
                   model: model,
+                  lastWeight: model.lastWeight,
+                  monthNumber: model.monthNumber,
                 ),
               ),
               const DetailsScreen(),
@@ -48,9 +54,10 @@ class HomeScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 shape: const StadiumBorder(),
                 padding: const EdgeInsets.all(10),
+                backgroundColor: Colors.green,
               ),
               child: Text(
-                'Add Weight here',
+                'Add Weight',
                 style: TextStyle(
                   fontSize: 15,
                   color: ThemeData().scaffoldBackgroundColor,

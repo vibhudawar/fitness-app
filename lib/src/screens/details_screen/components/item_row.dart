@@ -32,18 +32,18 @@ class ItemRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             //crossAxisAlignment: CrossAxisAlignment.baseline,
             children: [
-              Icon(
-                goodWeight
-                    ? Icons.arrow_downward_outlined
-                    : Icons.arrow_upward_outlined,
-                size: 20,
-                color: goodWeight ? Colors.green : Colors.red,
-              ),
+              // Icon(
+              //   goodWeight
+              //       ? Icons.arrow_downward_outlined
+              //       : Icons.arrow_upward_outlined,
+              //   size: 20,
+              //   color: goodWeight ? Colors.green : Colors.red,
+              // ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    weights.value.toString(),
+                    "${weights.value} Kg",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   Text(
@@ -57,13 +57,13 @@ class ItemRow extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(
-                goodWeight ? change.toString() : '+$change',
-                style: TextStyle(
-                    color: goodWeight ? Colors.green : Colors.red,
-                    fontWeight: FontWeight.bold,
-                    fontSize: getProportionateScreenWidth(15)),
-              ),
+              // Text(
+              //   goodWeight ? change.toString() : '+$change',
+              //   style: TextStyle(
+              //       color: goodWeight ? Colors.green : Colors.red,
+              //       fontWeight: FontWeight.bold,
+              //       fontSize: getProportionateScreenWidth(15)),
+              // ),
               Row(
                 children: [
                   ElevatedButton(
@@ -73,11 +73,11 @@ class ItemRow extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       shape: const CircleBorder(),
                       elevation: 0,
+                      backgroundColor: Colors.amber,
                     ),
                     child: const Icon(
                       Icons.edit,
                       size: 20,
-                      //color: Color(0xff05293d),
                     ),
                   ),
                   OutlinedButton(
@@ -85,9 +85,10 @@ class ItemRow extends StatelessWidget {
                       WeightOperations.deleteWeight(context, model, id);
                     },
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.grey,
+                      foregroundColor: Colors.white,
                       shape: const CircleBorder(),
                       elevation: 0,
+                      backgroundColor: Colors.red,
                     ),
                     child: const Icon(
                       Icons.delete_forever_rounded,

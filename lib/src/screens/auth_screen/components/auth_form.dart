@@ -45,6 +45,7 @@ class _AuthFormState extends State<AuthForm> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
                       labelText: 'Email',
+                      focusColor: Colors.green,
                     ),
                     onSaved: (value) {
                       widget.model.userEmail = value as String;
@@ -99,6 +100,9 @@ class _AuthFormState extends State<AuthForm> {
                     const CircularProgressIndicator()
                   else
                     ElevatedButton(
+                      style: const ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(Colors.green),
+                      ),
                       onPressed: () async {
                         setState(() {
                           isLoading = true;
@@ -129,8 +133,9 @@ class _AuthFormState extends State<AuthForm> {
                         widget.model.isLogin
                             ? 'Create New Account'
                             : 'I already have an account',
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
+                        style: const TextStyle(
+                          // color: Theme.of(context).primaryColor,
+                          color: Colors.green,
                         ),
                       ),
                     ),

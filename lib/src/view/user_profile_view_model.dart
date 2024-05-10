@@ -15,8 +15,12 @@ class UserProfileViewModel extends BaseModel {
     String? uid = auth.currentUser?.uid;
     var data = await db.collection('users').doc(uid).get();
 
-    user = userModelFromJson(data.data());
-    isLoaded = true;
+    if (data.exists) {
+      user = userModelFromJson(data.data());
+      isLoaded = true;
+    } else {
+      // Handle the case where the document doesn't exist
+    }
     final ThemeData theme = Theme.of(context);
     isDark = theme.brightness == Brightness.dark;
     notifyListeners();

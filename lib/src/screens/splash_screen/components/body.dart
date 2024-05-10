@@ -52,15 +52,15 @@ class Body extends StatelessWidget {
                           ),
                           child: Image.asset(
                             'assets/images/splash_1024.png',
-                            height: getProportionateScreenHeight(65),
-                            width: getProportionateScreenWidth(63),
+                            height: getProportionateScreenHeight(50),
+                            width: getProportionateScreenWidth(50),
                           ),
                         ),
                         SizedBox(
                           width: getProportionateScreenWidth(8),
                         ),
                         const Text(
-                          'Lossy',
+                          'FitUp',
                           style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
@@ -71,6 +71,13 @@ class Body extends StatelessWidget {
                     ),
                     SizedBox(
                       height: getProportionateScreenHeight(20),
+                    ),
+                    Text(
+                      'Making',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: getProportionateScreenWidth(20)),
                     ),
                     Row(
                       children: [
@@ -87,14 +94,15 @@ class Body extends StatelessWidget {
                         Text(
                           'Loss',
                           style: TextStyle(
-                              color: ThemeData().primaryColorDark,
+                              color: Colors.green,
+                              // color: ThemeData().primaryColorDark,
                               fontWeight: FontWeight.bold,
                               fontSize: getProportionateScreenWidth(30)),
                         ),
                       ],
                     ),
                     Text(
-                      'can be easy',
+                      'Easy!',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -103,63 +111,75 @@ class Body extends StatelessWidget {
                     SizedBox(
                       height: getProportionateScreenHeight(8),
                     ),
-                    Text(
-                      'and not 😂',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: getProportionateScreenWidth(15)),
-                    ),
+                    // Text(
+                    //   'and not 😂',
+                    //   style: TextStyle(
+                    //       color: Colors.black,
+                    //       fontWeight: FontWeight.bold,
+                    //       fontSize: getProportionateScreenWidth(15)),
+                    // ),
                     SizedBox(
                       height: getProportionateScreenHeight(35),
                     ),
                     const Text(
-                      'Start to measure your weight every day and analyze your dynamic.',
+                      'Measure and Analyze your weights on daily basis.',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         color: Colors.grey,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: getProportionateScreenHeight(35),
-              ),
-              Container(
-                height: 200,
+              // SizedBox(
+              //   height: getProportionateScreenHeight(35),
+              // ),
+              // Container(
+              //   height: 200,
 
-                ///Try with padding over here
-                child: PageView.builder(
-                  controller: controller,
-                  // itemCount: pages.length,
-                  itemBuilder: (_, index) {
-                    return CarouselCard(
-                        context, Constants.carouselItems[index]);
-                  },
-                ),
-              ),
-              SizedBox(
-                height: getProportionateScreenHeight(24),
-              ),
+              //   child: PageView.builder(
+              //     controller: controller,
+              //     // itemCount: pages.length,
+              //     itemBuilder: (_, index) {
+              //       return CarouselCard(
+              //           context, Constants.carouselItems[index]);
+              //     },
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: getProportionateScreenHeight(24),
+              // ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: getProportionateScreenHeight(30),
                   ),
-                  SmoothPageIndicator(
-                    controller: controller,
-                    count: Constants.carouselItems.length,
-                    effect: WormEffect(
-                      activeDotColor: ThemeData().primaryColorDark,
-                      dotHeight: 10,
-                      dotWidth: 10,
-                      type: WormType.thin,
-                      // strokeWidth: 5,
+                  Container(
+                    height: 300,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Image.asset(
+                      'assets/images/splash_1024.png',
+                      height: getProportionateScreenHeight(300),
+                      width: getProportionateScreenWidth(300),
                     ),
                   ),
+                  // SmoothPageIndicator(
+                  //   controller: controller,
+                  //   count: Constants.carouselItems.length,
+                  //   effect: const WormEffect(
+                  //     activeDotColor: Colors.green,
+                  //     // activeDotColor: ThemeData().primaryColorDark,
+                  //     dotHeight: 10,
+                  //     dotWidth: 10,
+                  //     type: WormType.thin,
+                  //     // strokeWidth: 5,
+                  //   ),
+                  // ),
                   SizedBox(
                     height: getProportionateScreenHeight(30),
                   ),
@@ -173,6 +193,7 @@ class Body extends StatelessWidget {
                         horizontal: getProportionateScreenWidth(135),
                         vertical: getProportionateScreenHeight(13),
                       ),
+                      backgroundColor: Colors.green,
                       shape: const StadiumBorder(),
                     ),
                     child: const Text(
@@ -193,8 +214,15 @@ class Body extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       TextButton(
+                        style: const ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(
+                          Colors.green,
+                        )),
                         onPressed: () {},
-                        child: const Text('Login'),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),

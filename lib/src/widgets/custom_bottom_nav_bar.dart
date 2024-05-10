@@ -6,26 +6,21 @@ Widget CustomBottomNavBar(HomeScreenViewModel model) {
     currentIndex: model.selectedIndex,
     selectedItemColor: Colors.black,
     onTap: model.onItemTapped,
-    items: <BottomNavigationBarItem>[
+    items: const <BottomNavigationBarItem>[
       BottomNavigationBarItem(
-        label: const Text('Home').toString(),
-        icon: const Icon(Icons.home),
-        backgroundColor: Colors.lightBlue,
-      ),
-      // BottomNavigationBarItem(
-      //   title: Text('Statistics'),
-      //   icon: Icon(Icons.auto_graph_rounded),
-      //   backgroundColor: Colors.lightBlue,
-      // ),
-      BottomNavigationBarItem(
-        label: const Text('History').toString(),
-        icon: const Icon(Icons.history),
-        backgroundColor: Colors.lightBlue,
+        label: 'Home',
+        icon: Icon(Icons.home),
+        backgroundColor: Colors.lightGreen,
       ),
       BottomNavigationBarItem(
-        label: const Text('Settings').toString(),
-        icon: const Icon(Icons.person_rounded),
-        backgroundColor: Colors.lightBlue,
+        label: 'History',
+        icon: Icon(Icons.history),
+        backgroundColor: Colors.lightGreen,
+      ),
+      BottomNavigationBarItem(
+        label: 'Settings',
+        icon: Icon(Icons.person_rounded),
+        backgroundColor: Colors.lightGreen,
       ),
     ],
   );

@@ -13,7 +13,8 @@ class AuthScreen extends StatelessWidget {
     return BaseView<AuthScreenViewModel>(builder: (context, model, child) {
       return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.green,
+        // backgroundColor: Theme.of(context).primaryColor,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +49,7 @@ class AuthScreen extends StatelessWidget {
                   width: getProportionateScreenWidth(8),
                 ),
                 Text(
-                  'Welcome to Lossy',
+                  'Welcome to FitUp',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -69,7 +70,7 @@ class AuthScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'By tapping SignUp I agree to Lossy\'s Terms of service.Privacy Policy and User Agreement. ',
+                'By tapping Signup I agree to FitUp\'s terms of service. Privacy policy and user agreement.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
