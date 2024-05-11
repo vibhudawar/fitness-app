@@ -53,6 +53,10 @@ FitUp is a mobile application built using flutter and firebase both for android 
 </tbody>
 </table>
 
+## Walkthrough Video
+
+[YouTube](https://www.youtube.com/watch?v=JXkDT_QKo2I)
+
 ## ER Diagram
 
 <p align="center">
