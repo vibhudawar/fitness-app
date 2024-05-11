@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Weight Statistics',
+                  'Weight',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
