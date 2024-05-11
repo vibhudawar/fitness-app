@@ -1,0 +1,35 @@
+- assets
+    - images
+- lib
+    - config
+        - size_config.dart
+    - provider
+        - base_model.dart
+        - base_view.dart
+        - getit.dart
+    - routes
+        - routes.dart
+    - service
+        - navigation_service.dart
+    - src
+        - models
+            - user_model.dart
+            - weights_model.dart
+        - screens
+            - sample_screen
+                - screen_components
+                    - component.dart
+                - sample_screen.dart
+        - views
+            - sample_view_model.dart
+        - widgets
+            - widget.dart
+    - firebase_options.dart
+    - main.dart
+
+
+
+
+
+
+    
