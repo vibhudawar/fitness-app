@@ -18,7 +18,7 @@ Widget CustomBottomNavBar(HomeScreenViewModel model) {
         backgroundColor: Colors.lightGreen,
       ),
       BottomNavigationBarItem(
-        label: 'Settings',
+        label: 'Account',
         icon: Icon(Icons.person_rounded),
         backgroundColor: Colors.lightGreen,
       ),

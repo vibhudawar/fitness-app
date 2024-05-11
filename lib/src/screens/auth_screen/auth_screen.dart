@@ -14,11 +14,9 @@ class AuthScreen extends StatelessWidget {
       return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.green,
-        // backgroundColor: Theme.of(context).primaryColor,
         body: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: getProportionateScreenHeight(40),
@@ -58,19 +56,15 @@ class AuthScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
+            SizedBox(height: getProportionateScreenHeight(20)),
             AuthForm(
               model: model,
             ),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
+            SizedBox(height: getProportionateScreenHeight(20)),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'By tapping Signup I agree to FitUp\'s terms of service. Privacy policy and user agreement.',
+                'By tapping signup I agree to FitUp\'s terms of service. Privacy policy and user agreement.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,

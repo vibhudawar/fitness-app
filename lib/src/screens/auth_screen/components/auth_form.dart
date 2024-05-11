@@ -134,7 +134,6 @@ class _AuthFormState extends State<AuthForm> {
                             ? 'Create New Account'
                             : 'I already have an account',
                         style: const TextStyle(
-                          // color: Theme.of(context).primaryColor,
                           color: Colors.green,
                         ),
                       ),

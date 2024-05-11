@@ -32,71 +32,12 @@ class UserProfile extends StatelessWidget {
                   ? ListView(
                       children: [
                         // User card
-                        BigUserCard(
-                          backgroundColor: Colors.green,
-                          // backgroundColor: Theme.of(context).primaryColor,
-                          userName: model.user.name,
+                        SimpleUserCard(
+                          imageRadius: 20,
                           userProfilePic: NetworkImage(model.user.imageUrl),
-                          // cardActionWidget: SettingsItem(
-                          //   icons: Icons.edit,
-                          //   iconStyle: IconStyle(
-                          //     withBackground: true,
-                          //     borderRadius: 50,
-                          //     backgroundColor: Colors.yellow[600],
-                          //   ),
-                          //   title: "Modify",
-                          //   subtitle: "Tap to change your data",
-                          //   onTap: () {
-                          //     Fluttertoast.showToast(msg: 'Coming soon!');
-                          //   },
-                          // ),
+                          userName: model.user.name,
                         ),
                         SettingsGroup(
-                          items: const [
-                            // SettingsItem(
-                            //   onTap: () {
-                            //     Fluttertoast.showToast(
-                            //         msg: 'Coming soon! stay updated');
-                            //   },
-                            //   icons: CupertinoIcons.pencil_outline,
-                            //   iconStyle: IconStyle(),
-                            //   title: 'Appearance',
-                            //   subtitle: "Make Weight Tracker'App yours",
-                            // ),
-                            // SettingsItem(
-                            //   onTap: () {},
-                            //   icons: Icons.dark_mode_rounded,
-                            //   iconStyle: IconStyle(
-                            //     iconsColor: Colors.white,
-                            //     withBackground: true,
-                            //     backgroundColor: Colors.red,
-                            //   ),
-                            //   title: 'Dark mode',
-                            //   subtitle: "Automatic",
-                            //   trailing: Switch.adaptive(
-                            //       value: false, onChanged: (value) {}),
-                            // ),
-                          ],
-                        ),
-                        SettingsGroup(
-                          items: const [
-                            // SettingsItem(
-                            //   onTap: () {
-                            //     Navigator.of(context)
-                            //         .pushNamed(AboutUs.routeName);
-                            //   },
-                            //   icons: Icons.info_rounded,
-                            //   iconStyle: IconStyle(
-                            //     backgroundColor: Colors.purple,
-                            //   ),
-                            //   title: 'About',
-                            //   subtitle: "Learn more about Devs",
-                            // ),
-                          ],
-                        ),
-                        // You can add a settings title
-                        SettingsGroup(
-                          settingsGroupTitle: "Account",
                           items: [
                             SettingsItem(
                               onTap: () {
@@ -125,13 +66,6 @@ class UserProfile extends StatelessWidget {
                             ),
                           ],
                         ),
-                        // FlexThemeModeSwitch(
-                        //   themeMode: themeMode as ThemeMode,
-                        //   onThemeModeChanged:
-                        //       onThemeModeChanged as void Function(ThemeMode),
-                        //   flexSchemeData: flexSchemeData as FlexSchemeData,
-                        //   buttonOrder: FlexThemeModeButtonOrder.lightSystemDark,
-                        // ),
                       ],
                     )
                   : const Center(

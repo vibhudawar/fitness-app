@@ -17,28 +17,18 @@ class ItemRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int change = int.parse(weights.value) - 74;
-    final bool goodWeight = model.checkWeight(int.parse(weights.value));
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(0),
       child: Card(
-        elevation: 6.0,
+        elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Container(
           height: getProportionateScreenHeight(100),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //crossAxisAlignment: CrossAxisAlignment.baseline,
             children: [
-              // Icon(
-              //   goodWeight
-              //       ? Icons.arrow_downward_outlined
-              //       : Icons.arrow_upward_outlined,
-              //   size: 20,
-              //   color: goodWeight ? Colors.green : Colors.red,
-              // ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -57,13 +47,6 @@ class ItemRow extends StatelessWidget {
                   ),
                 ],
               ),
-              // Text(
-              //   goodWeight ? change.toString() : '+$change',
-              //   style: TextStyle(
-              //       color: goodWeight ? Colors.green : Colors.red,
-              //       fontWeight: FontWeight.bold,
-              //       fontSize: getProportionateScreenWidth(15)),
-              // ),
               Row(
                 children: [
                   ElevatedButton(
@@ -94,7 +77,7 @@ class ItemRow extends StatelessWidget {
                       Icons.delete_forever_rounded,
                       size: 22,
                     ),
-                  )
+                  ),
                 ],
               ),
             ],

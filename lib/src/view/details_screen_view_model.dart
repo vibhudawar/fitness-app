@@ -59,7 +59,7 @@ class DetailsScreenViewModel extends BaseModel {
 
         if (snapshot.docs.isNotEmpty) {
           lastWeight = snapshot.docs.first.data()['value'];
-          // debugPrint('lastWeight: $lastWeight');
+
           return;
         } else {
           return null;

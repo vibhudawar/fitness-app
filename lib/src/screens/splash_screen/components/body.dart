@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:fitness_app/config/size_config.dart';
-import 'package:fitness_app/constant/constant.dart';
 import 'package:fitness_app/src/screens/auth_screen/auth_screen.dart';
-import 'package:fitness_app/src/screens/splash_screen/components/carousel_card.dart';
 
 class Body extends StatelessWidget {
   Body({super.key});
@@ -15,15 +12,6 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // decoration: BoxDecoration(
-      //     gradient: LinearGradient(
-      //   begin: Alignment.topCenter,
-      //   end: Alignment.bottomCenter,
-      //   colors: const [
-      //     Color(0xFFC2FFF9),
-      //     Color(0xFF71DFE7),
-      //   ],
-      // )),
       child: Padding(
         padding: EdgeInsets.all(getProportionateScreenWidth(15)),
         child: Container(
@@ -104,20 +92,14 @@ class Body extends StatelessWidget {
                     Text(
                       'Easy!',
                       style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: getProportionateScreenWidth(30)),
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: getProportionateScreenWidth(30),
+                      ),
                     ),
                     SizedBox(
                       height: getProportionateScreenHeight(8),
                     ),
-                    // Text(
-                    //   'and not 😂',
-                    //   style: TextStyle(
-                    //       color: Colors.black,
-                    //       fontWeight: FontWeight.bold,
-                    //       fontSize: getProportionateScreenWidth(15)),
-                    // ),
                     SizedBox(
                       height: getProportionateScreenHeight(35),
                     ),
@@ -132,24 +114,6 @@ class Body extends StatelessWidget {
                   ],
                 ),
               ),
-              // SizedBox(
-              //   height: getProportionateScreenHeight(35),
-              // ),
-              // Container(
-              //   height: 200,
-
-              //   child: PageView.builder(
-              //     controller: controller,
-              //     // itemCount: pages.length,
-              //     itemBuilder: (_, index) {
-              //       return CarouselCard(
-              //           context, Constants.carouselItems[index]);
-              //     },
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: getProportionateScreenHeight(24),
-              // ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -168,18 +132,6 @@ class Body extends StatelessWidget {
                       width: getProportionateScreenWidth(300),
                     ),
                   ),
-                  // SmoothPageIndicator(
-                  //   controller: controller,
-                  //   count: Constants.carouselItems.length,
-                  //   effect: const WormEffect(
-                  //     activeDotColor: Colors.green,
-                  //     // activeDotColor: ThemeData().primaryColorDark,
-                  //     dotHeight: 10,
-                  //     dotWidth: 10,
-                  //     type: WormType.thin,
-                  //     // strokeWidth: 5,
-                  //   ),
-                  // ),
                   SizedBox(
                     height: getProportionateScreenHeight(30),
                   ),
@@ -215,9 +167,10 @@ class Body extends StatelessWidget {
                       ),
                       TextButton(
                         style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(
-                          Colors.green,
-                        )),
+                          backgroundColor: MaterialStatePropertyAll(
+                            Colors.green,
+                          ),
+                        ),
                         onPressed: () {},
                         child: const Text(
                           'Login',

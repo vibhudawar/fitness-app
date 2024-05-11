@@ -12,8 +12,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // debugPrint('lastWeight: $lastWeight');
-
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: getProportionateScreenWidth(15),
@@ -30,13 +28,6 @@ class Body extends StatelessWidget {
                   'Weight Statistics',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                // OutlinedButton(
-                //   onPressed: () {},
-                //   child: Text('Edit'),
-                //   style: OutlinedButton.styleFrom(
-                //     shape: StadiumBorder(),
-                //   ),
-                // )
               ],
             ),
           ),
@@ -66,9 +57,7 @@ class Body extends StatelessWidget {
                         lineWidth: 13,
                         animation: true,
                         animationDuration: 2000,
-                        // arcType: ArcType.FULL,
                         percent: 1,
-                        // arcBackgroundColor: Colors.grey.withOpacity(0.3),
                         startAngle: 270,
                         circularStrokeCap: CircularStrokeCap.round,
                         progressColor: Colors.green[400],
@@ -100,14 +89,6 @@ class Body extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // Text(
-                      //   '78',
-                      //   style: TextStyle(
-                      //     fontSize: 20,
-                      //     color: Colors.grey,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      // ),
                       Text(
                         'Current Weight',
                         style: TextStyle(
@@ -115,21 +96,7 @@ class Body extends StatelessWidget {
                           color: Colors.grey,
                           fontWeight: FontWeight.w600,
                         ),
-                        // 'Dropped ~ 4 kg',
-                        // style: TextStyle(
-                        //   fontSize: 15,
-                        //   color: Colors.grey,
-                        //   fontWeight: FontWeight.w600,
-                        // ),
                       ),
-                      // Text(
-                      //   '72',
-                      //   style: TextStyle(
-                      //     fontSize: 20,
-                      //     color: Colors.grey,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      // ),
                     ],
                   ),
                 ],
@@ -150,14 +117,6 @@ class Body extends StatelessWidget {
                       'Statistics',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    // OutlinedButton.icon(
-                    //   onPressed: () {},
-                    //   icon: Icon(Icons.arrow_drop_down),
-                    //   label: Text('Week'),
-                    //   style: OutlinedButton.styleFrom(
-                    //     shape: StadiumBorder(),
-                    //   ),
-                    // )
                   ],
                 ),
                 SizedBox(

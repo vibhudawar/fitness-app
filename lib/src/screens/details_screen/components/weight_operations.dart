@@ -42,7 +42,6 @@ class WeightOperations {
               model.edit(docId: docId);
 
               model.getLastWeight();
-
               Navigator.of(context).pop();
               Fluttertoast.showToast(msg: "Weight saved");
             },

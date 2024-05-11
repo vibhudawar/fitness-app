@@ -74,7 +74,7 @@ class HomeScreenViewModel extends BaseModel {
           lastWeight = snapshot.docs.first.data()['value'];
           milliseconds = snapshot.docs.first.data()['time'];
           monthNumber = getMonthNumberFromMilliseconds(milliseconds!);
-          // debugPrint('lastWeight: $lastWeight');
+
           return;
         } else {
           return null;

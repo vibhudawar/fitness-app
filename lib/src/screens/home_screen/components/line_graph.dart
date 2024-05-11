@@ -55,7 +55,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
                 Radius.circular(18),
               ),
               color: Colors.green,
-              // color: Theme.of(context).primaryColor,
             ),
             child: Padding(
               padding: const EdgeInsets.only(
@@ -188,8 +187,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
             reservedSize: 22,
             interval: 1,
             getTitlesWidget: bottomTitleWidgets,
-
-            // margin: 8,
           ),
         ),
         leftTitles: AxisTitles(
@@ -198,7 +195,6 @@ class _LineChartSample2State extends State<LineChartSample2> {
             interval: 1,
             reservedSize: 32,
             getTitlesWidget: leftTitleWidgets,
-            // margin: 12,
           ),
         ),
       ),
@@ -215,20 +211,8 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: spotsData,
-          // const [
-          //   FlSpot(1, 70),
-          //   FlSpot(2, 80),
-          //   FlSpot(3, 60),
-          //   FlSpot(4, 44),
-          //   FlSpot(5, 90),
-          //   FlSpot(6, 70),
-          //   FlSpot(7, 45),
-          //   FlSpot(8, 60),
-          //   FlSpot(9, 50),
-          // ],
           isCurved: true,
           color: Colors.amber,
-          // gradient: LinearGradient(colors: gradientColors),
           barWidth: 5,
           isStrokeCapRound: true,
           dotData: const FlDotData(
